@@ -35,4 +35,3 @@ class MyTestCase(unittest.TestCase):
             environment.statistics.get_reward_over_sent_count_data()
         )
         email_variant_probabilities = environment.statistics.get_probabilities_data()
-
