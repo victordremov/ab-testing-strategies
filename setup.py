@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as f:
     long_description = f.read()
@@ -6,14 +6,13 @@ with open("README.md", "r") as f:
 with open("LICENSE") as f:
     license = f.read()
 
-name = "abtestingstrategiesbackend"
 setup(
-    name=name,
+    name="abtestingstrategiesbackend",
     version="0.1",
     description="ab testing research",
     license=license,
     long_description=long_description,
     author="Victor Dremov",
     author_email="victor.dremov@gmail.com",
-    packages=[name],
+    packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
 )
