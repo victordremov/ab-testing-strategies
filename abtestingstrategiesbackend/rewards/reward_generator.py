@@ -4,8 +4,8 @@ from typing import Dict, Any, Union, Callable, Optional
 
 import numpy as np
 
-from ab_testing_strategies.email import EmailVariant, Email
-from ab_testing_strategies.rewards.reward import Reward
+from abtestingstrategiesbackend.email import EmailVariant, Email
+from abtestingstrategiesbackend.rewards.reward import Reward
 
 
 class OutOfRangeException(ValueError):

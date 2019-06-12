@@ -6,9 +6,9 @@ from dataclasses import dataclass
 from typing import Dict, Union, Tuple, Iterator
 import numpy as np
 
-from ab_testing_strategies.email import EmailVariant, Email
-from ab_testing_strategies.rewards.reward import Reward
-from ab_testing_strategies.rewards.reward_generator import Probability
+from abtestingstrategiesbackend.email import EmailVariant, Email
+from abtestingstrategiesbackend.rewards.reward import Reward
+from abtestingstrategiesbackend.rewards.reward_generator import Probability
 
 
 @dataclass

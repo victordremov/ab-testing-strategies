@@ -2,9 +2,9 @@ import unittest
 
 from datetime import datetime, timedelta
 
-from ab_testing_strategies.email import Email, EmailVariant
-from ab_testing_strategies.rewards.reward import Reward
-from ab_testing_strategies.rewards.reward_storage import RewardStorage
+from abtestingstrategiesbackend.email import Email, EmailVariant
+from abtestingstrategiesbackend.rewards.reward import Reward
+from abtestingstrategiesbackend.rewards.reward_storage import RewardStorage
 
 
 class TestRewardStorage(unittest.TestCase):

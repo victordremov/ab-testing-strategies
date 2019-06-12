@@ -1,11 +1,11 @@
 import unittest
 from datetime import timedelta, datetime
 
-from ab_testing_strategies.agent import Agent
-from ab_testing_strategies.email import EmailVariant
-from ab_testing_strategies.environment import Environment
-from ab_testing_strategies.policy import EpsilonGreedyPolicy
-from ab_testing_strategies.rewards.reward_generator import Probability, RewardGenerator
+from abtestingstrategiesbackend.agent import Agent
+from abtestingstrategiesbackend.email import EmailVariant
+from abtestingstrategiesbackend.environment import Environment
+from abtestingstrategiesbackend.policy import EpsilonGreedyPolicy
+from abtestingstrategiesbackend.rewards.reward_generator import Probability, RewardGenerator
 
 
 class MyTestCase(unittest.TestCase):

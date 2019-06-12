@@ -4,11 +4,11 @@ from typing import Optional, List, Dict
 from dataclasses import dataclass, field
 import pandas as pd
 
-from ab_testing_strategies.agent import Agent
-from ab_testing_strategies.email import Email, EmailVariant
-from ab_testing_strategies.rewards.reward import Reward
-from ab_testing_strategies.rewards.reward_generator import RewardGenerator, Probability
-from ab_testing_strategies.rewards.reward_storage import RewardStorage
+from abtestingstrategiesbackend.agent import Agent
+from abtestingstrategiesbackend.email import Email, EmailVariant
+from abtestingstrategiesbackend.rewards.reward import Reward
+from abtestingstrategiesbackend.rewards.reward_generator import RewardGenerator, Probability
+from abtestingstrategiesbackend.rewards.reward_storage import RewardStorage
 
 
 @dataclass

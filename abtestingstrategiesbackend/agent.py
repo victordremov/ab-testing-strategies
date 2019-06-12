@@ -1,8 +1,8 @@
 from typing import Union, List
 
-from ab_testing_strategies.email import Email
-from ab_testing_strategies.policy import Policy
-from ab_testing_strategies.rewards.reward import Reward
+from abtestingstrategiesbackend.email import Email
+from abtestingstrategiesbackend.policy import Policy
+from abtestingstrategiesbackend.rewards.reward import Reward
 
 
 class Agent:

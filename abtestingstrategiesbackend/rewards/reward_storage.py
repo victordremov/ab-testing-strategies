@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 from datetime import datetime
 
-from ab_testing_strategies.rewards.reward import Reward
+from abtestingstrategiesbackend.rewards.reward import Reward
 
 
 class RewardStorage:

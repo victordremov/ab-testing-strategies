@@ -3,10 +3,10 @@ import unittest.mock
 
 from datetime import datetime
 
-from ab_testing_strategies.email import EmailVariant, Email
-from ab_testing_strategies.policy import EpsilonGreedyPolicy, EmailVariantStatistics
-from ab_testing_strategies.rewards.reward import Reward
-from ab_testing_strategies.rewards.reward_generator import Probability
+from abtestingstrategiesbackend.email import EmailVariant, Email
+from abtestingstrategiesbackend.policy import EpsilonGreedyPolicy, EmailVariantStatistics
+from abtestingstrategiesbackend.rewards.reward import Reward
+from abtestingstrategiesbackend.rewards.reward_generator import Probability
 
 
 class TestPolicy(unittest.TestCase):

@@ -1,9 +1,9 @@
 import unittest
 from datetime import timedelta, datetime
 
-from ab_testing_strategies.email import EmailVariant, Email
-from ab_testing_strategies.rewards.reward import Reward
-from ab_testing_strategies.rewards.reward_generator import RewardGenerator, Probability, UnknownEmailVariantError, \
+from abtestingstrategiesbackend.email import EmailVariant, Email
+from abtestingstrategiesbackend.rewards.reward import Reward
+from abtestingstrategiesbackend.rewards.reward_generator import RewardGenerator, Probability, UnknownEmailVariantError, \
     OutOfRangeException
 
 
