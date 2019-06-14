@@ -8,7 +8,7 @@ with open("LICENSE") as f:
 
 setup(
     name="abtestingstrategiesbackend",
-    version="0.1",
+    version="0.1a",
     description="ab testing research",
     license=license,
     long_description=long_description,
