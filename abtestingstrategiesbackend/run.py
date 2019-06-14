@@ -32,7 +32,7 @@ def run_experiment(n_emails: int) -> DataFrame:
         ),
         start_datetime=start_datetime,
     )
-    for _ in range(1000):
+    for _ in range(n_emails):
         environment.process_email_sending()
     reward_over_sent_count = environment.statistics.get_reward_over_sent_count_data()
     return reward_over_sent_count
