@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 
+from pandas import DataFrame
+
 from abtestingstrategiesbackend.agent import Agent
 from abtestingstrategiesbackend.email import EmailVariant
 from abtestingstrategiesbackend.environment import Environment
@@ -10,7 +12,7 @@ from abtestingstrategiesbackend.rewards.reward_generator import (
 )
 
 
-def run_experiment():
+def run_experiment(n_emails: int) -> DataFrame:
     reward_probabilities = {
         EmailVariant(10): Probability(0.1),
         EmailVariant(20): Probability(0.9),
