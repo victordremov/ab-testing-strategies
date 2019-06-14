@@ -16,3 +16,4 @@ setup(
     author_email="victor.dremov@gmail.com",
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
 )
+
