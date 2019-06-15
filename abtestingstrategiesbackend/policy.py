@@ -102,3 +102,26 @@ class EpsilonGreedyPolicy(Policy):
         best_variant = self._choose_currently_best_variant()
         probabilities[best_variant] += 1 - self.epsilon
         return probabilities
+
+
+class ABTestingPolicy(EpsilonGreedyPolicy):
+    def __init__(
+        self, email_variants: Iterator[EmailVariant], n_emails_for_ab_test: int,
+    ) -> None:
+        self.n_emails_for_ab_test = n_emails_for_ab_test
+        self.email_variants = list(email_variants)
+        self.epsilon = 0.0
+        self.email_variants_statistics: Dict[EmailVariant, EmailVariantStatistics] = {}
+        for email_variant in iter(self.email_variants):
+            self.email_variants_statistics[email_variant] = EmailVariantStatistics(
+                n_attempts=0, n_successes=0
+            )
+
+    def choose_email_variant(self) -> EmailVariant:
+        if self.n_attempts < self.n_emails_for_ab_test:
+            return self._choose_random_variant()
+        return self._choose_currently_best_variant()
+
+    @property
+    def n_attempts(self):
+        return sum(s.n_attempts for s in self.email_variants_statistics.values())

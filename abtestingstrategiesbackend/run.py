@@ -5,23 +5,25 @@ from pandas import DataFrame
 from abtestingstrategiesbackend.agent import Agent
 from abtestingstrategiesbackend.email import EmailVariant
 from abtestingstrategiesbackend.environment import Environment
-from abtestingstrategiesbackend.policy import EpsilonGreedyPolicy
+from abtestingstrategiesbackend.policy import EpsilonGreedyPolicy, ABTestingPolicy
 from abtestingstrategiesbackend.rewards.reward_generator import (
     Probability,
     RewardGenerator,
 )
 
 
-def run_experiment(n_emails: int) -> DataFrame:
+def run_ab_testing_experiment(
+    n_emails: int, probability_a: float, probability_b: float, n_emails_for_ab_test: int
+) -> DataFrame:
+
     reward_probabilities = {
-        EmailVariant(10): Probability(0.10),
-        EmailVariant(20): Probability(0.20),
-        EmailVariant(30): Probability(0.15),
+        EmailVariant("A"): Probability(probability_a),
+        EmailVariant("B"): Probability(probability_b),
     }
     email_variants = list(reward_probabilities.keys())
     agent = Agent(
-        policy=EpsilonGreedyPolicy(
-            epsilon=Probability(0.1), email_variants=email_variants
+        policy=ABTestingPolicy(
+            email_variants=email_variants, n_emails_for_ab_test=n_emails_for_ab_test
         )
     )
     start_datetime = datetime(2019, 1, 1)
