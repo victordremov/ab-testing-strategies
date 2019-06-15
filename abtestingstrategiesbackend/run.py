@@ -15,7 +15,8 @@ from abtestingstrategiesbackend.rewards.reward_generator import (
 def run_experiment(n_emails: int) -> DataFrame:
     reward_probabilities = {
         EmailVariant(10): Probability(0.10),
-        EmailVariant(20): Probability(0.11),
+        EmailVariant(20): Probability(0.20),
+        EmailVariant(30): Probability(0.15),
     }
     email_variants = list(reward_probabilities.keys())
     agent = Agent(
