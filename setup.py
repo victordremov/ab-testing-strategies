@@ -8,12 +8,13 @@ with open("LICENSE") as f:
 
 setup(
     name="abtestingstrategiesbackend",
-    version="0.1.2",
+    version="0.1.3",
     description="ab testing research",
     license=license,
     long_description=long_description,
     author="Victor Dremov",
     author_email="victor.dremov@gmail.com",
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
+    include_package_data=True,
 )
 

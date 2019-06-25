@@ -1,6 +1,11 @@
 from datetime import datetime, timedelta
 
+import pkg_resources
+from numpy.core.multiarray import ndarray
 from pandas import DataFrame
+import numpy as np
+import pandas as pd
+from typing import Iterator
 
 from abtestingstrategiesbackend.agent import Agent
 from abtestingstrategiesbackend.email import EmailVariant
@@ -28,11 +33,26 @@ def run_ab_testing_experiment(
         )
     )
     start_datetime = datetime(2019, 1, 1)
+
+    class RewardDelaySampler:
+        def __init__(self, values: ndarray, probabilities: ndarray) -> None:
+            self.values = values
+            self.probabilities = probabilities
+
+        def __call__(self):
+            return pd.to_timedelta(np.random.choice(self.values, size=1, p=self.probabilities))
+
+    csv_file = pkg_resources.resource_filename('abtestingstrategiesbackend.resources', 'timespan_from_send_to_click_with_probability.csv')
+    reward_delay_distribution = pd.read_csv(csv_file)
+    reward_delay_values = pd.to_timedelta(reward_delay_distribution['MinutesSinceSend'], unit='m')
+    reward_delay_probabilities = reward_delay_distribution['probability']
+    reward_delay_sampler = RewardDelaySampler(values=reward_delay_values, probabilities=reward_delay_probabilities)
+
     environment = Environment(
         agent=agent,
         reward_generator=RewardGenerator(
             reward_probabilities=reward_probabilities,
-            generate_reward_delay=lambda: timedelta(hours=1),
+            generate_reward_delay=reward_delay_sampler
         ),
         start_datetime=start_datetime,
     )
